@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phonebook>
+    <author>
+        <name>A.M.</name>
+    </author>
+    <contacts>
+        <contact>
+            <type>друг</type>
+            <firstName>Василий</firstName>
+            <lastName>Курочкин</lastName>
+            <email>vas@pisem.net</email>
+        </contact>
+        <contact>
+            <type>коллега</type>
+            <firstName>Георгий</firstName>
+            <lastName>Папанов</lastName>
+            <email>geogr@gmail.com</email>
+            <address>
+                <address>Dnipro</address>
+                <postIndex>49000</postIndex>
+                <phoneNumber>32-97-56</phoneNumber>
+                <phoneNumber>0968458230</phoneNumber>
+            </address>
+        </contact>
+        <contact>
+            <type>однокурсник</type>
+            <firstName>Семен</firstName>
+            <lastName>Баринов</lastName>
+            <email>barinov@yandex.ru</email>
+        </contact>
+    </contacts>
+</phonebook>

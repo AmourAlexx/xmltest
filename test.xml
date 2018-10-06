@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phonebook>
+    <author name="A.M."/>
+    <contacts>
+
+        <contact type="друг" firstName="Василий" lastName="Курочкин" email="vas@pisem.net"/>
+        <contact type="коллега" firstName="Георгий" lastName="Папанов" email="geogr@gmail.com">
+            <address city="Dnipro" postIndex="49000">
+                <phoneNumber value="32-97-56"/>
+                <phoneNumber value="0968458230"/>
+            </address>
+        </contact>
+        <contact type="однокурсник" firstName="Семен" lastName="Баринов" email="barinov@yandex.ru"/>
+
+    </contacts>
+</phonebook>
