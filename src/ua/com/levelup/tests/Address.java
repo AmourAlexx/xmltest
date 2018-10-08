@@ -1,5 +1,6 @@
 package ua.com.levelup.tests;
 
+import javax.xml.bind.annotation.XmlElement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class Address {
         return numbers;
     }
 
+    @XmlElement(name="phoneNumber")
     public void setNumbers(List<String> numbers) {
         this.numbers = numbers;
     }

@@ -1,6 +1,13 @@
 package ua.com.levelup.tests;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
 public class Contact {
+
     private String type;
     private String firstName;
     private String lastName;

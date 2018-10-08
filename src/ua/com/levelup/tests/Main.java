@@ -4,11 +4,16 @@ package ua.com.levelup.tests;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,44 +21,35 @@ public class Main {
 
     private static List<Contact> contacts = new ArrayList<>();
 
-    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-        DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = f.newDocumentBuilder();
+    public static void main(String[] args) throws JAXBException {
 
-        Document doc = builder.parse(new File("test.xml"));
-        NodeList lst = doc.getDocumentElement().getElementsByTagName("contact");
+        /*Contact cc = new Contact();
+        cc.setType("friend");
+        cc.setFirstName("Oleh");
+        cc.setLastName("Gromov");
+        cc.setEmail("ddd@ddd.fg");
+        Address adr = new Address();
+        adr.setPostIndex("45999");
+        adr.setCity("Dnipro");
+        adr.getNumbers().add("323-562");
+        adr.getNumbers().add("333-888");
+        cc.setAddress(adr);
 
-        for (int i = 0; i < lst.getLength(); i++) {
-            Node n = lst.item(i);
-            NamedNodeMap at = n.getAttributes();
+        Contacts clst = new Contacts();
+        clst.setContacts(new ArrayList<>());
+        clst.getContacts().add(cc);
 
-            Contact c = new Contact();
-            c.setType(at.getNamedItem("type").getNodeValue());
-            c.setFirstName(at.getNamedItem("firstName").getNodeValue());
-            c.setLastName(at.getNamedItem("lastName").getNodeValue());
-            c.setEmail(at.getNamedItem("email").getNodeValue());
+        PhoneBook pb = new PhoneBook();
+        pb.setAuthor("A.M.");
+        pb.setContacts(clst);*/
 
-            if (n instanceof Element) {
-                Element en = (Element) n;
-                NodeList addrLst = en.getElementsByTagName("address");
-                if (addrLst.getLength() > 0) {
-                    Element addr = (Element) addrLst.item(0);
-                    Address ad = new Address();
-                    ad.setCity(addr.getAttribute("city"));
-                    ad.setPostIndex(addr.getAttribute("postIndex"));
-                    NodeList phoneLst = addr.getElementsByTagName("phoneNumber");
-                    for (int j = 0; j < phoneLst.getLength(); j++) {
-                        ad.getNumbers().add(((Element)phoneLst.item(j)).getAttribute("value"));
-                    }
-                    c.setAddress(ad);
-                }
+        StringWriter sw = new StringWriter();
 
-            }
-            contacts.add(c);
-        }
+        JAXBContext context = JAXBContext.newInstance(PhoneBook.class);
+        Unmarshaller m = context.createUnmarshaller();
+        PhoneBook pb = (PhoneBook)m.unmarshal(new File("test2.xml"));
 
-        for (Contact c: contacts)
-            System.out.println(c);
+        System.out.println(pb.toString());
     }
 
 
