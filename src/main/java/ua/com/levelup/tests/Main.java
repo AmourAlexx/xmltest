@@ -47,7 +47,7 @@ public class Main {
 
         JAXBContext context = JAXBContext.newInstance(PhoneBook.class);
         Unmarshaller m = context.createUnmarshaller();
-        PhoneBook pb = (PhoneBook)m.unmarshal(new File("test2.xml"));
+        PhoneBook pb = (PhoneBook)m.unmarshal(new File("resources//test2.xml"));
 
         System.out.println(pb.toString());
     }

@@ -1,10 +1,11 @@
 package ua.com.levelup.tests;
 
 import javax.xml.bind.annotation.XmlElement;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Address {
+public class Address implements Serializable {
 
     private String city;
     private String postIndex;

@@ -4,14 +4,15 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 
 
-public class Contact {
+public class Contact implements Serializable {
 
     private String type;
     private String firstName;
     private String lastName;
-    private String email;
+    private transient String email;
     private Address address;
 
     public String getType() {
